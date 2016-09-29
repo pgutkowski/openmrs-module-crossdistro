@@ -13,15 +13,15 @@
 	<description>Omod submodule for Crossdistro</description>
 
 	<dependencies>
-        <dependency>
-            <groupId>org.openmrs.module</groupId>
-            <artifactId>crossdistro-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
+		<dependency>
+		    <groupId>org.openmrs.module</groupId>
+		    <artifactId>crossdistro-api</artifactId>
+		    <version>1.0.0-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>org.openmrs.web</groupId>
 			<artifactId>openmrs-web</artifactId>
-            <scope>provided</scope>
+	    <scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.openmrs.web</groupId>
@@ -29,17 +29,19 @@
 			<scope>provided</scope>
 			<classifier>tests</classifier>
 		</dependency>
-	<dependency>
-            
-            
-            
-            
-        <groupId>${project.parent.groupId}</groupId>
-<artifactId>${project.parent.artifactId}-owa</artifactId>
-<version>${project.parent.version}</version>
-<type>zip</type>
-</dependency>
-</dependencies>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-owa</artifactId>
+			<version>${project.parent.version}</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-distro</artifactId>
+			<version>${project.parent.version}</version>
+			<type>zip</type>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<finalName>${project.parent.artifactId}-${project.parent.version}</finalName>
@@ -53,39 +55,74 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 			</plugin>
+			<plugin>
+		        
+		        
+		        
+				    <groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+						    
+						<execution>
+					<id>include-owa</id>
+					<phase>process-resources</phase>
+				<goals>
+							    
+							<goal>copy</goal>
+				</goals>
+				<configuration>
+							    
+							    
+							<artifactItems>
+								
+							    <artifactItem>
+								    
+								    
+								    
+								    
+								    
+								<groupId>${project.parent.groupId}</groupId>
+				<artifactId>${project.parent.artifactId}-owa</artifactId>
+				<version>${project.parent.version}</version>
+				<type>zip</type>
+				<destFileName>${project.parent.artifactId}.owa</destFileName>
+				</artifactItem>
+				</artifactItems>
+				<outputDirectory>${project.build.directory}/classes/web/module/owas</outputDirectory>
+				</configuration>
+				</execution>
+
+						<execution>
+					<id>include-distro</id>
+					<phase>process-resources</phase>
+				<goals>
+							    
+							<goal>copy</goal>
+				</goals>
+				<configuration>
+							    
+							    
+							<artifactItems>
+								
+							    <artifactItem>
+								    
+								    
+								    
+								    
+								    
+								<groupId>${project.parent.groupId}</groupId>
+				<artifactId>${project.parent.artifactId}-distro</artifactId>
+				<version>${project.parent.version}</version>
+				<type>zip</type>
+				<destFileName>distro.owa</destFileName>
+				</artifactItem>
+				</artifactItems>
+				<outputDirectory>${project.build.directory}/classes/web/module/owas</outputDirectory>
+				</configuration>
+				</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
-<executions><execution>
-            
-            
-            
-            
-        <id>include-owa</id>
-<phase>process-resources</phase>
-<goals>
-                
-            <goal>copy</goal>
-</goals>
-<configuration>
-                
-                
-            <artifactItems>
-                    
-                <artifactItem>
-                        
-                        
-                        
-                        
-                        
-                    <groupId>${project.parent.groupId}</groupId>
-<artifactId>${project.parent.artifactId}-owa</artifactId>
-<version>${project.parent.version}</version>
-<type>zip</type>
-<destFileName>${project.parent.artifactId}.owa</destFileName>
-</artifactItem>
-</artifactItems>
-<outputDirectory>${project.build.directory}/classes/web/module/owas</outputDirectory>
-</configuration>
-</execution>
-</executions></project>
+</project>

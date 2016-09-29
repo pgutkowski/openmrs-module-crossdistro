@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "distro",
+  "description": "cross distro app",
+  "launch_path": "index.html",
+  "icons": {
+    "48": "/img/omrs-button.png"
+  },
+  "developer": {
+    "name": "PawelGutkowski",
+    "url": "https://github.com/PawelGutkowski/openmrs-owa-crossdistro"
+  },
+  "default_locale": "en",
+    "activities": {
+      "openmrs": {
+        "href": "*"
+      }
+    }
+}
