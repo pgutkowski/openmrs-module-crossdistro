@@ -26,9 +26,11 @@
 
 	<aware_of_modules>
 		<aware_of_module>org.openmrs.module.legacyui</aware_of_module>
-	<aware_of_module>org.openmrs.module.owa</aware_of_module>
-<aware_of_module>org.openmrs.module.owa</aware_of_module>
-</aware_of_modules>
+	</aware_of_modules>
+
+	<require_modules>
+		<require_module version="1.6.2">org.openmrs.module.owa</require_module>
+	</require_modules>
 	
 	
 	<!-- AOP
