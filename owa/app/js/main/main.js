@@ -5,6 +5,7 @@ import Home from '../home/home';
 
 var distroModuleName;
 
+//'angular.module(...)' throws exception if specified module cannot be found
 try{
     distroModuleName = angular.module('distro').name
 } catch(err) {

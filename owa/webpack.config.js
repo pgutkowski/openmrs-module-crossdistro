@@ -123,6 +123,7 @@ plugins.push(new CommonsChunkPlugin("vendor", "vendor.bundle.js"));
 plugins.push(new HtmlWebpackPlugin({
     template: './app/index.html',
     inject: 'head',
+	//exclude fallback, so it is dynamically loaded only when needed
 	excludeChunks: ['fallback']
 }));
 

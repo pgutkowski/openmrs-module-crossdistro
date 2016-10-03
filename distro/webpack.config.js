@@ -121,11 +121,11 @@ plugins.push(new CopyWebpackPlugin([{
 }]));
 
 plugins.push(new CopyWebpackPlugin([{
-    from: './app/img/omrs-button.png',
-    to: 'img/omrs-button.png'
+	from: './app/css/distro.css',
+	to: 'distro.css'
 }]));
 
- plugins.push(new ngAnnotatePlugin({
+plugins.push(new ngAnnotatePlugin({
   add: true,
   map: false
 }));
@@ -133,8 +133,8 @@ plugins.push(new CopyWebpackPlugin([{
 var webpackConfig = {
   quiet: false,
   entry: {
-	  lib : `${__dirname}/app/js/crossdistro.js`,
-	  css: `${__dirname}/app/css/crossdistro.css`
+	  distro : `${__dirname}/app/js/distro.js`,
+	  css: `${__dirname}/app/css/distro.css`
   },
   devtool: devtool,
   target,

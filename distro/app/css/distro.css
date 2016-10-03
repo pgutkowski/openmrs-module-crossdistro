@@ -74,3 +74,8 @@ header .logo img {
 .instructions {
     align-self: center;
 }
+
+.distro-controlled {
+    color: white;
+    background: seagreen;
+}

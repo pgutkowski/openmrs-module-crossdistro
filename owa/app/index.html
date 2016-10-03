@@ -5,24 +5,30 @@
   <!-- openmrs favicon -->
   <link rel="shortcut icon" type="image/ico" href="../../images/openmrs-favicon.ico"/>
   <link rel="icon" type="image/png" href="../../images/openmrs-favicon.png"/>
-  <script src="../distro/lib.bundle.js" type="text/javascript"></script>
+  <script src="../distro/distro.bundle.js" type="text/javascript"></script>
+  <!--webpack injects bundle scripts here-->
 </head>
 <body>
-<main></main>
-<script type="text/javascript">
-  try {
-    angular.module('distro');
-    angular.bootstrap(document, ['main']);
-  }
-  catch(e) {
-    var script = document.createElement('script');
-    script.src = 'fallback.bundle.js';
-    script.type = "text/javascript";
-    script.onload = function(){
+  <main></main>
+  <script type="text/javascript">
+    try {
+      //distro module is provided by distro.bundle.js, if it is found, just proceed with bootstrapping angular
+      angular.module('distro');
       angular.bootstrap(document, ['main']);
-    };
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-</script>
+    }
+    catch(e) {
+      //if distro.bundle.js is not available, fallback to fallback.bundle.js from this app
+      var script = document.createElement('script');
+      script.src = 'fallback.bundle.js';
+      script.type = "text/javascript";
+      script.onload = function(){
+        //wait with bootstrapping till fallback bundle is loaded
+        angular.bootstrap(document, ['main']);
+      };
+      document.getElementsByTagName('head')[0].appendChild(script);
+    }
+  </script>
+  <!--last stylesheets have the highest precedence, effectively distribution can take over app styling -->
+  <link rel="stylesheet" type="text/css" href="../distro/distro.css"/>
 </body>
 </html>
