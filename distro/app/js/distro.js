@@ -12,4 +12,4 @@
 import Distro from './distro/distro'
 import Header from './header/header'
 
-export default angular.module('distro', [ Distro.name, Header.name ])
+export default angular.module('openmrs-contrib-uicommons-customized', [ Distro.name, Header.name ])
