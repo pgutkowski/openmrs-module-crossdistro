@@ -10,5 +10,6 @@
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
 import Distro from './distro/distro'
+import Header from './header/header'
 
-export default angular.module('distro', [ Distro.name ])
+export default angular.module('distro', [ Distro.name, Header.name ])

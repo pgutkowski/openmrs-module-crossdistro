@@ -27,7 +27,7 @@ const WebpackOnBuildPlugin = require('on-build-webpack');
 
 const nodeModulesDir = path.resolve(__dirname, '../node_modules');
 
-const THIS_APP_ID = 'crossdistro';
+const THIS_APP_ID = 'distro';
 
 var plugins = [];
 const nodeModules = {};
@@ -117,7 +117,8 @@ plugins.push(new BrowserSyncPlugin({
 }));
 
 plugins.push(new CopyWebpackPlugin([{
-    from: './app/manifest.webapp'
+    from: './app/manifest.webapp',
+	to: 'manifest.webapp'
 }]));
 
 plugins.push(new CopyWebpackPlugin([{
